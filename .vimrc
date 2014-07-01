@@ -25,7 +25,7 @@ set wildmenu
 "set wildmode=list:longest,full
 
 " Line Numbers PWN!
-"set number
+set number
 
 " Ignoring case is a fun trick
 set ignorecase
