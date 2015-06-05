@@ -117,8 +117,9 @@ fun! SetupVAM()
   endif
   let &rtp.=(empty(&rtp)?'':',').c.plugin_root_dir.'/vim-addon-manager'
 
+  " Examples
   " Tell VAM which plugins to fetch & load:
-  call vam#ActivateAddons([], {'auto_install' : 0})
+  "call vam#ActivateAddons([], {'auto_install' : 0})
   " sample: call vam#ActivateAddons(['pluginA','pluginB', ...], {'auto_install' : 0})
   " Also See "plugins-per-line" below
 
@@ -149,6 +150,11 @@ call SetupVAM()
 " Installing plugins
 " ----------------------------------------------------------------------------
 
-" vim/gutgitter to mark lines that have changed.
-call vam#ActivateAddons(["github:airblade/vim-gitgutter"], {'auto_install' : 0})
-call vam#ActivateAddons(["github:tpope/vim-sensible"], {'auto_install' : 0})
+" List of plugins to make only one call to vam#ActivateAddons.
+" vim-gutgitter to mark lines that have changed.
+" vim-sensible for a set of preset configuration",
+let myplugins = [
+      \"github:airblade/vim-gitgutter",
+      \"github:tpope/vim-sensible",
+      \]
+call vam#ActivateAddons(myplugins, {'auto_install' : 0})
