@@ -125,9 +125,11 @@ call SetupVAM()
 
 " List of plugins to make only one call to vam#ActivateAddons.
 " vim-gutgitter to mark lines that have changed.
-" vim-sensible for a set of preset configuration",
+" vim-sensible for a set of preset configuration.
+" vim-fugitive for git integration.
 let myplugins = [
-      \"github:airblade/vim-gitgutter",
       \"github:tpope/vim-sensible",
+      \"github:airblade/vim-gitgutter",
+      \"github:tpope/vim-fugitive",
       \]
 call vam#ActivateAddons(myplugins, {'auto_install' : 0})
