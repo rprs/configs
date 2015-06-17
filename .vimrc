@@ -1,21 +1,62 @@
 " First thing on any vimrc file: Set no compatible
 set nocompatible
 
-" Replace tabs with spaces (enough spaces to make a tab)
-set expandtab
+
+" Mappings for quickly editing and sourcing and editing ~/.vimrc
+:nnoremap <leader>ve :vsplit $MYVIMRC<cr>
+:nnoremap <leader>vs :w\|:bd\|source $MYVIMRC<cr>
+:nnoremap <leader>vq :bd!<cr>
+
+" Allow backspacing over everything in insert mode.
+set backspace=indent,eol,start
+
+" Delete comment character when joining commented lines
+if v:version > 703 || v:version == 703 && has("patch541")
+  set formatoptions+=j
+endif
+
+" Characters that show whitespaces.
+if &listchars ==# 'eol:$'
+  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+endif
 
 " Who wants an 8 character tab?  Not me!
-set shiftwidth=2
 set softtabstop=2
+set shiftwidth=2
+set tabstop=2
+set shiftround
 
-" Show Line Numbers
+" Who doesn't like autoindent?
+set autoindent
+set smartindent
+
+" Spaces are better than a tab character
+set expandtab
+set smarttab
+
+" Line Numbers PWN!
 set number
 
-" Ignoring case...
+" This shows what you are typing as a command.
+set showcmd
+
+" show part of last line even if it too long to show it complete.
+set display+=lastline
+
+" Autocomplete vim commands
+set wildmenu
+
+" Ignoring case is a fun trick
 set ignorecase
 
-" ...except when there is an upper case letter on the text.
+" And so is Artificial Intellegence!
 set smartcase
+
+"Always show status bar (the grey one at bottom)
+set laststatus=2
+
+"Show current line number
+set ruler
 
 "Always show tab title
 set stal=2
@@ -23,8 +64,55 @@ set stal=2
 "Highlight search pattern matches
 set hlsearch
 
+" Show search pattern matches as you type
+set incsearch
+
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+endif
+
+" Automatically load file if it has changed outside vim.
+set autoread
+
 "Toggles paste identation
 set pastetoggle=<F2>
+
+" command history
+if &history < 1000
+  set history=1000
+endif
+
+"Max number of tabs
+if &tabpagemax < 50
+  set tabpagemax=50
+endif
+
+" Avoid undoable undos
+inoremap <C-U> <C-G>u<C-U>
+
+" Allow color schemes to do bright colors without forcing bold.
+if &t_Co == 8 && $TERM !~# '^linux'
+  set t_Co=16
+endif
+
+" Diffing
+highlight DiffAdd      ctermfg=231  ctermbg=22   cterm=NONE
+highlight DiffChange   ctermfg=231  ctermbg=17   cterm=NONE
+highlight DiffDelete   ctermfg=196  ctermbg=88   cterm=NONE
+highlight DiffText     ctermfg=000  ctermbg=214  cterm=NONE
+
+" Search
+hi Search ctermfg=8  ctermbg=7
+
+" Needed for Syntax Highlighting and stuff
+if has('autocmd')
+  filetype on
+  filetype plugin indent on
+endif
+if has('syntax') && !exists('g:syntax_on')
+  syntax on
+endif
 
 " ----------------------------------------------------------------------------
 " YCM section
@@ -125,11 +213,24 @@ call SetupVAM()
 
 " List of plugins to make only one call to vam#ActivateAddons.
 " vim-gutgitter to mark lines that have changed.
-" vim-sensible for a set of preset configuration.
 " vim-fugitive for git integration.
+" Diffchar to make diff more readable.
 let myplugins = [
-      \"github:tpope/vim-sensible",
       \"github:airblade/vim-gitgutter",
       \"github:tpope/vim-fugitive",
+      \"github:Valloric/YouCompleteMe",
+      \"diffchar",
       \]
 call vam#ActivateAddons(myplugins, {'auto_install' : 0})
+
+
+" ----------------------------------------------------------------------------
+" Plugins settings
+" ----------------------------------------------------------------------------
+
+"" DIFFCHAR
+" diff by words, not by chars:
+let g:DiffUnit = 'Word1'
+" " update diffs (not sure why this isn't default)
+let g:DiffUpdate = 1
+
