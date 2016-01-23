@@ -9,7 +9,11 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# Set Super (windows) key as modifier.
 set $mod Mod4
+
+# Set Alt+Control+l for locking the screen.
+bindsym Mod1+control+l exec "gnome-screensaver-command --lock"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
