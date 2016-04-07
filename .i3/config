@@ -156,7 +156,11 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-#Start a terminal in workspace 7
+# Things to run o start up
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id nm-applet
+
+# Start a terminal in workspace 7
 exec --no-startup-id i3-msg 'workspace 7'
 
 # Start i3bar to display a workspace bar (plus the system information i3status
