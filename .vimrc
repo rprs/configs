@@ -352,4 +352,3 @@ call vam#ActivateAddons(myplugins, {'auto_install' : 0})
 let g:DiffUnit = 'Word1'
 " " update diffs (not sure why this isn't default)
 let g:DiffUpdate = 1
-
