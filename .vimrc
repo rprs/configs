@@ -9,7 +9,18 @@ set nocompatible
 
 " Mappings for quickly showing diffs.
 :nnoremap <leader>cdq :bd\|diffoff<cr>
-:nnoremap <leader>cds :Gdiff<cr>
+:nnoremap <leader>cdu :Gdiff<cr>
+:nnoremap <leader>cds :Gdiff HEAD<cr>
+
+" Mapping for using FZF:
+:nnoremap <leader>cfs :FZF<cr>
+
+" let g:rprs_tree_directories = map([
+  " \ '~/src/',
+  " \ ], 'piperlib#GetRootDir() . v:val')
+
+" let $FZF_DEFAULT_COMMAND = join(map(copy(g:rprs_tree_directories),
+        " \ '''ag '' . v:val . '' --nocolor --nogroup --ignore "**/*.pyc" -g ""'''), ' ; ')
 
 " Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start
@@ -296,9 +307,8 @@ fun! SetupVAM()
   endif
   let &rtp.=(empty(&rtp)?'':',').c.plugin_root_dir.'/vim-addon-manager'
 
-  " Examples
   " Tell VAM which plugins to fetch & load:
-  "call vam#ActivateAddons([], {'auto_install' : 0})
+  " call vam#ActivateAddons([], {'auto_install' : 0})
   " sample: call vam#ActivateAddons(['pluginA','pluginB', ...], {'auto_install' : 0})
   " Also See "plugins-per-line" below
 
@@ -339,6 +349,7 @@ let myplugins = [
       \"github:airblade/vim-gitgutter",
       \"github:tpope/vim-fugitive",
       \"diffchar",
+      \"github:junegunn/fzf",
       \]
 call vam#ActivateAddons(myplugins, {'auto_install' : 0})
 
