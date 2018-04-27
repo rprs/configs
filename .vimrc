@@ -15,12 +15,15 @@ set nocompatible
 " Mapping for using FZF:
 :nnoremap <leader>cfs :FZF<cr>
 
+"" How we limited ag to only look for certain directories:
 " let g:rprs_tree_directories = map([
-  " \ '~/src/',
+  " \ 'src/',
   " \ ], 'piperlib#GetRootDir() . v:val')
-
 " let $FZF_DEFAULT_COMMAND = join(map(copy(g:rprs_tree_directories),
         " \ '''ag '' . v:val . '' --nocolor --nogroup --ignore "**/*.pyc" -g ""'''), ' ; ')
+
+" Let fzf use ag with all directories
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start
