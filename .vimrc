@@ -353,6 +353,7 @@ let myplugins = [
       \"github:tpope/vim-fugitive",
       \"diffchar",
       \"github:junegunn/fzf",
+      \"github:Valloric/YouCompleteMe",
       \]
 call vam#ActivateAddons(myplugins, {'auto_install' : 0})
 
