@@ -3,7 +3,12 @@
 #
 # Blatantly stolen from
 # https://github.com/mislav/dotfiles/blob/master/bin/tmux-session
+
+# Stop script if anything fails.
 set -e
+
+# Set ourselves in the correct directory
+cd ~/
 
 dump() {
   tmux list-windows -a -F "#S #{pane_current_path}"
