@@ -36,8 +36,6 @@ restore() {
   local count=0
 
   while read session_name dir; do
-    echo $session_name
-    echo $dir
     if [ -d "$dir" ]; then
       if session_exists "$session_name"; then
         add_window "$session_name" "$dir"
