@@ -161,6 +161,9 @@ exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agen
 exec --no-startup-id nm-applet # Network Manager
 exec --no-startup-id /usr/bin/blueman-applet # Bluetooth Manager
 
+# This is how you would start a wallpaper:
+# exec --no-startup-id feh --bg-center Downloads/portal.png
+
 # Start a terminal in workspace 7
 exec --no-startup-id i3-msg 'workspace 7'
 
