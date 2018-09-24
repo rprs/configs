@@ -2,10 +2,12 @@
 sudo apt install vlc
 sudo apt install feh
 sudo apt install python-bs4
+sudo apt install blueman # For bluetooth
 
 # For vim plugins.
 sudo apt install silversearcher-ag
-sudo apt install fzf
+# fzf has its own install executable inside the plugin path.
+.vim/vim-addons/github-junegunn-fzf/install
 sudo apt install cscope
 sudo apt install python-pip
 pip install pycscope
@@ -20,3 +22,6 @@ sudo apt install golang-go
 # Instaling YouCompleteMe plugin
 cd ~/.vim/vim-addons/github-Valloric-YouCompleteMe/
 ./install.py --clang-completer --cs-completer --go-completer --java-completer
+
+# Adding the right dimensions to chrome remote desktop
+echo 'export CHROME_REMOTE_DESKTOP_DEFAULT_DESKTOP_SIZES="2000x1333"' >> ~/.profile 
