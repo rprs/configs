@@ -23,5 +23,11 @@ sudo apt install golang-go
 cd ~/.vim/vim-addons/github-Valloric-YouCompleteMe/
 ./install.py --clang-completer --cs-completer --go-completer --java-completer
 
+# Pytest for writing test on python
+pip install -U pytest --user
+
+# Install pylint for linting python files.
+sudo apt install pylint
+
 # Adding the right dimensions to chrome remote desktop
 echo 'export CHROME_REMOTE_DESKTOP_DEFAULT_DESKTOP_SIZES="2000x1333"' >> ~/.profile 
