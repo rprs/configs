@@ -353,6 +353,7 @@ let myplugins = [
       \"github:tpope/vim-fugitive",
       \"diffchar",
       \"github:junegunn/fzf",
+      \"github:vim-syntastic/syntastic",
       \"github:Valloric/YouCompleteMe",
       \]
 call vam#ActivateAddons(myplugins, {'auto_install' : 0})
@@ -367,3 +368,14 @@ call vam#ActivateAddons(myplugins, {'auto_install' : 0})
 let g:DiffUnit = 'Word1'
 " " update diffs (not sure why this isn't default)
 let g:DiffUpdate = 1
+
+"" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_balloons = 0
+let g:syntastic_enable_highlighting = 0
