@@ -1,3 +1,4 @@
+#!/bin/bash
 # General
 git config --global alias.st status
 # Configure git to use vim as diff tool.

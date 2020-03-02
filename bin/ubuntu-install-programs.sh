@@ -3,6 +3,8 @@ sudo apt install vlc
 sudo apt install feh
 sudo apt install python-bs4
 sudo apt install blueman # For bluetooth
+sudo apt install tmux
+sudo apt install i3
 
 # For vim plugins.
 sudo apt install silversearcher-ag
@@ -12,6 +14,10 @@ sudo apt install cscope
 sudo apt install python-pip
 pip install pycscope
 pip install --upgrade pip
+
+# Since I have this file, I already have bin repo downloaded, so I'm going to
+# install swift syntax for vim.
+sh ~/bin/install-swift-syntax-for-vim.sh
 
 # Vim YouCompleteMe plugin dependencies
 sudo apt install build-essential cmake
@@ -30,4 +36,4 @@ pip install -U pytest --user
 sudo apt install pylint
 
 # Adding the right dimensions to chrome remote desktop
-echo 'export CHROME_REMOTE_DESKTOP_DEFAULT_DESKTOP_SIZES="2000x1333"' >> ~/.profile 
+# echo 'export CHROME_REMOTE_DESKTOP_DEFAULT_DESKTOP_SIZES="2000x1333"' >> ~/.profile 

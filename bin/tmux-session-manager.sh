@@ -40,7 +40,7 @@ restore() {
       if session_exists "$session_name"; then
         add_window "$session_name" "$dir"
       else
-        new_session "$session_name" "$window_name" "$dir"
+        new_session "$session_name" "$dir"
         count=$(( count + 1 ))
       fi
     fi
