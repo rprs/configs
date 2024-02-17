@@ -13,7 +13,7 @@
 set $mod Mod4
 
 # Set Alt+Control+l for locking the screen.
-bindsym Mod1+control+l exec "gnome-screensaver-command --lock"
+bindsym Mod1+control+l exec "i3lock -i Pictures/wallpapers/3840x2160/Stephen-King-hard-work.png"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -34,7 +34,7 @@ new_window none
 focus_follows_mouse no
 
 # start chrome
-bindsym $mod+c exec google-chrome-beta
+bindsym $mod+c exec google-chrome
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
