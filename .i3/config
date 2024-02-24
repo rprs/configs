@@ -125,8 +125,10 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -156,7 +158,14 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Things to run o start up
+# Screenshot commands
+bindsym $mod+p exec scrot --silent -e 'mv $f ~/Screenshots/'
+bindsym --release $mod+Shift+p exec import -silent ~/Screenshots/ss-$(date +%Y-%m-%d-%H-%m-%S).png
+
+# Dismiss all notifications
+bindsym $mod+x exec dunstctl close-all
+
+# Things to run on start up
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 # For authenticating on UI applications.
 exec --no-startup-id nm-applet # Network Manager
 exec --no-startup-id blueman-applet # Bluetooth Manager
