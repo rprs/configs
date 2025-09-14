@@ -8,3 +8,5 @@ stty -ixon
 
 # open android studio
 alias android-studio=~/android-studio/bin/studio.sh
+
+alias nvim=/usr/local/bin/nvim
